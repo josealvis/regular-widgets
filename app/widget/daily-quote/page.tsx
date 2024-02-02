@@ -9,7 +9,6 @@ let getData = async () => {
       });
     console.log("detail: ", response.statusText);
     const quotes = await response.json();
-    console.log("ok", quotes.quote);
     return quotes.quote;
 
   } catch (error) {
