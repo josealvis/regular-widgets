@@ -27,9 +27,9 @@ export default async function Page() {
     <div className="container flex flex-col items-center justify-center h-screen mx-auto px-4 text-xl font-mono
       ">
       <div className={`flex py-5 text-${color}-600 `}>
-        <span className="text-6xl">"</span>
+        <span className="text-6xl">&lsquo;</span>
         <h1 className="">{quoteOftheDay.body}</h1>
-        <span className="text-6xl">"</span>
+        <span className="text-6xl">&rsquo;</span>
       </div>
       <h3 className={`w-full text-right text-${color}-400`}>
         <a href={quoteOftheDay.url} target='blanck'>{quoteOftheDay.author}</a>
