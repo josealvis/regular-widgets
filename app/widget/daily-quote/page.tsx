@@ -25,12 +25,12 @@ export default async function Page() {
   return (
     <div className="container flex flex-col items-center justify-center h-screen mx-auto px-4 text-xl font-mono
       ">
-      <div className={`flex py-5 text-${color}-600 `}>
-        <span className="text-6xl">&lsquo;</span>
-        <h1 className="">{quoteOftheDay.body}</h1>
-        <span className="text-6xl">&rsquo;</span>
+      <div className={`flex py-5 text-slate-500 `}>
+        <span className="text-6xl tracking-tight px-2">&lsquo;&lsquo;</span>
+        <h1 className="text-lg font-bold">{quoteOftheDay.body}</h1>
+        <span className="text-6xl  tracking-tight px-2">&rsquo;&rsquo;</span>
       </div>
-      <h3 className={`w-full text-right text-${color}-400`}>
+      <h3 className={`w-full text-base text-right text-slate-400`}>
         <a href={quoteOftheDay.url} target='blanck'>{quoteOftheDay.author}</a>
       </h3>
     </div>
