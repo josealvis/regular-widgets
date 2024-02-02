@@ -17,8 +17,8 @@ let getData = async () => {
 };
 
 export default async function Page() {
-  let colors  = ['sky', 'indigo', 'slate', 'lime', 'violet'];
-  let color = colors[Math.floor(Math.random() * colors.length-1 )];
+  //let colors  = ['sky', 'indigo', 'slate', 'lime', 'violet'];
+  //let color = colors[Math.floor(Math.random() * colors.length-1 )];
   let quoteOftheDay = await getData();
 
   
