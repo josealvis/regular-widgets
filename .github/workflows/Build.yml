@@ -5,16 +5,10 @@ on:
     - main
 
 jobs:
-  my_job:
-    name: deploy to staging
-    runs-on: ubuntu-18.04
+  build:
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '10.x'
-
       - name: npm install, build and test
         run: |
           npm install
