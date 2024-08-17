@@ -23,6 +23,9 @@ export function useLocalStorage<T>(key: string, fallbackValue: T) {
     function cleanStorage() {
         localStorage.clear()
     }
+    
+
+
 
     return [value, setValue, cleanStorage] as const;
 }
