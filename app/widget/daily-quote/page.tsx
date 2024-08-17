@@ -1,42 +1,44 @@
 
 'use client'
 import { useState, useEffect } from 'react'
-import axios from 'axios';
+//import axios from 'axios';
+
+interface IQuote{
+  body: string,
+  url: string,
+  author:string
+
+} 
+
+
+let getData = async ():Promise<IQuote>   => {
+    const response = await fetch("https://api.allorigins.win/raw?url=https://favqs.com/api/qotd");
+    const jsonRes = await response.json();
+    return (jsonRes.quote as IQuote)
+};
+
 
 export default  function Page() {
+  // TODO: Add  varible  color styles to the quotes.
   //let colors  = ['sky', 'indigo', 'slate', 'lime', 'violet'];
   //let color = colors[Math.floor(Math.random() * colors.length-1 )];
-  const [quoteOftheDay, setData] = useState<Quote>()
+  const [quoteOftheDay, setData] = useState<IQuote>()
   const [isLoading, setLoading] = useState(true)
 
-  interface Response{
-    data: {
-      quote : Quote
-    }
-  } 
-  
-  interface Quote{
-    body: string,
-    url: string,
-    author:string
+  const  array: Array<IQuote> = []
 
-  } 
 
   useEffect(() => {
-    axios.defaults.headers.post['Content-Type'] ='application/json;charset=utf-8';
-    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-    axios.get('https://api.allorigins.win/raw?url=https://favqs.com/api/qotd')
-        .then(function (response: Response) {
-    // handle success
-    console.log(response);
-    console.log("response: ", response)
-        setData(response.data.quote)
+    async function callData(){
+        let quote:IQuote = await  getData();// TODO: manage exception  here.
+        if(quote !== null){
+        setData(quote)
         setLoading(false)
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
+        }
+   }
+
+   callData();
+
   }, [])
 
   return (
