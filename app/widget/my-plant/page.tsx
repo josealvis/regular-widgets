@@ -3,6 +3,8 @@
 import { useLocalStorage } from '@/hooks/useLocalStorage'
 import { useState, useEffect, useCallback } from 'react'
 
+const ASSET_PREFIX = process.env.NODE_ENV === 'production'? "/regular-widgets/": "";
+
 
 //every stage  need 100 exp to reach new stage
 //every new stage start in 0 exp
@@ -136,7 +138,7 @@ export default function Page() {
 
     const happyness = Math.round((myPlant.stats.health / myPlant.plantProfile.maxHealth) * 3);
     const saturationLevel = ['saturate-0', 'saturate-50', 'saturate-100', 'saturate-150'];
-    const sprites = `/assets/plants_sprites/growing_plants/tomat/tomat_${myPlant?.currentStage}.png`
+    const sprites = `${ASSET_PREFIX}/assets/plants_sprites/growing_plants/tomat/tomat_${myPlant?.currentStage}.png`
 
 
     const handlerPlantLife = useCallback(() => {
