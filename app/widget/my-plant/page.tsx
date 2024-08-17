@@ -66,8 +66,8 @@ export default function Page() {
             if (myPlant.exp >= 100) {
                 setMyplant((prevVal) => {
                     let copy = { ...prevVal }
-                    copy.currentStage = copy.currentStage < copy.plantProfile.totalStages ? copy.currentStage + 1 : copy.currentStage;
-                    copy.exp = copy.currentStage < copy.plantProfile.totalStages ? 0 : 100;
+                    copy.currentStage = copy.currentStage < plantProfile.totalStages ? copy.currentStage + 1 : copy.currentStage;
+                    copy.exp = copy.currentStage < plantProfile.totalStages ? 0 : 100;
                     console.log(copy.exp)
                     return copy;
                 });
